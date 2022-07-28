@@ -1,0 +1,26 @@
+{
+  "name": "lessons-api",
+  "version": "1.0.0",
+  "description": "Lessons API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustStoyan/lessons.git"
+  },
+  "author": "Stoyan Veselinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustStoyan/lessons/issues"
+  },
+  "homepage": "https://github.com/JustStoyan/lessons#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
