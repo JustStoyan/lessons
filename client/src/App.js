@@ -1,4 +1,4 @@
-import NotLogged from './components/NotLogged';
+import NotLogged from './components/Pages/NotLogged';
 
 
 function App() {
