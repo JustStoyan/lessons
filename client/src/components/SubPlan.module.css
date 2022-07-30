@@ -1,0 +1,41 @@
+.subPlan-card {
+  display: flex;
+  width: 400px;
+  height: 300px;
+  flex-flow: column wrap;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.title {
+  display: flex;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.price {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding-top: 50px;
+  align-items: center;
+  border-bottom: 1px solid black;
+  flex-grow: 3;
+}
+
+.price h3 {
+  font-size: 30px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.sub-button {
+  font-size: 20px;
+  padding: 5px;
+}
