@@ -7,10 +7,8 @@ const SubscriptionPlan = props => {
         <h2 className={styles.title}>{props.title}</h2>
         <div className={styles.price}>
             <h3>{props.price}</h3>
-            <div className={styles.actions}>
-                <Button className={styles[`sub-button`]} type={"button"} name={"Subscribe"}></Button>
-                <Button className={styles[`info-button`]} type={"button"} name={"Info"}></Button>
-            </div>
+            <Button className={styles[`sub-button`]} type={"button"} name={"Subscribe"}></Button>
+
         </div>
         <p className={styles.description}>{props.description}</p>
     </section>

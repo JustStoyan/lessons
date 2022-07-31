@@ -1,10 +1,10 @@
 const Button = props => {
 
-    return <button className={props.className} type={props.type}>
+    return <button className={props.className} type={props.type} {...props} >
 
         {props.name}
 
-    </button>
+    </button >
 }
 
 export default Button;

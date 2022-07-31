@@ -1,0 +1,14 @@
+.ulist {
+  display: flex;
+  gap: 10px;
+}
+
+.ulist a {
+  text-decoration: none;
+  font-size: 18px;
+  transition: font-size 0.2s;
+}
+
+.ulist a:hover {
+  font-size: 18.5px;
+}
