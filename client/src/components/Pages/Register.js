@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import firebaseApp from '../../Utils/firebase';
+
 
 import Button from '../Button';
 import styles from './Register.module.css';
@@ -9,6 +13,7 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repPass, setRepPass] = useState('');
+
 
 
     const onTypeHandler = (e) => {
@@ -29,10 +34,52 @@ const Register = () => {
 
     }
 
-    const submitHandler = () => {
+
+
+    const submitHandler = (e) => {
 
         //POST REQUST
-       
+        if (password !== repPass) {
+            return toast.error('Password missmatch', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        const auth = getAuth(firebaseApp);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                return toast.success('User succesfully created', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+
+                return toast.error(errorMessage, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+
+
+
 
         //Clean the input
         setName(() => '');

@@ -16,6 +16,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    subscribtion: {
+        type: String,
+    },
     videos: [{
         type: Schema.Types.ObjectId,
         ref: 'Video'

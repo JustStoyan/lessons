@@ -21,26 +21,26 @@ router.post('/register', (req, res, next) => {
                     bcrypt.hash(password, salt, function (err, hash) {
                         password = hash;
                         let newUser = new User({ name, email, password });
-                        newUser.save()
-                            .then(result => res.json({ "name": result.name, "id": result.id }))
-                            .catch(err => console.log(err))
+                        newUser.save().then(result => {
+                            return res.json({ "name": result.name, "email": result.email, "message": "You have sucesfully created an user" })
+                        })
                     });
                 });
             }
         })
         .catch(next);
-    next;
+
 })
 
 //Login
 router.post('/login', (req, res, next) => {
     const { email, password } = req.body;
-
+    console.log(email, password)
     User.findOne({ email })
         .then(user => {
 
             if (!user) {
-                return res.status(400).json("message: User or password are wrong")
+                return res.status(400).json({ "message": "User or password are wrong" })
             } else {
                 bcrypt.compare(password, user.password, function (err, result) {
                     if (err) {
@@ -49,7 +49,7 @@ router.post('/login', (req, res, next) => {
                         if (result) {
                             const token = jwt.sign({ email: user.email, id: user._id }, 'SECRET_KEY', { expiresIn: '24h' })
 
-                            res.status(200).json({
+                            return res.status(200).json({
                                 token: `Bearer ${token}`
                             })
                         } else {
